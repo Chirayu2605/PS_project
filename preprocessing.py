@@ -6,37 +6,18 @@
 
 import re       # re = regular expressions, used to find/remove patterns in text
 import pandas as pd   # pandas helps us work with tables (CSV files)
-
+import numpy as np
 
 def clean_text(text):
-    """
-    This function takes a single review string and cleans it.
-    Example: "Great Product!!!" -> "great product"
-    """
-    # Step 1: If the input is not a string (maybe NaN), return empty string
     if not isinstance(text, str):
         return ""
-
-    # Step 2: Convert everything to lowercase
-    # "GREAT Product" -> "great product"
     text = text.lower()
-
-    # Step 3: Remove anything that is NOT a letter or space
-    # This removes numbers, punctuation, symbols etc.
-    # [^a-z\s] means "anything that is not a-z or whitespace"
     text = re.sub(r"[^a-z\s]", " ", text)
-
-    # Step 4: Remove extra spaces (multiple spaces become one)
     text = re.sub(r"\s+", " ", text).strip()
-
     return text
 
 
 def tokenize(text):
-    """
-    Split a sentence into a list of words.
-    Example: "good product" -> ["good", "product"]
-    """
     return text.split()
 
 

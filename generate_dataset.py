@@ -57,6 +57,16 @@ negative_templates = [
     "Do not recommend. {adj} and {adj2}.",
     "I {verb} this {noun} once and returned it. Totally {adj}.",
     "Bottom tier {noun}. {reason}.",
+    "This is bad. The {noun} is {adj}.",
+    "Junk {noun}. Complete waste. {reason}.",
+    "Not good at all. {adj} and {adj2}.",
+    "This {noun} sucks. {reason}.",
+    "Trash {noun}. I {verb} buying it.",
+    "Dont buy this {noun}. It is {adj}.",
+    "Garbage quality {noun}. {reason}.",
+    "Worst purchase ever. This {noun} is {adj} and {adj2}.",
+    "Stay away from this {adj} {noun}. {reason}.",
+    "Zero stars. This is {adj} junk.",
 ]
 
 # ── Word pools ───────────────────────────────────────────────────────
@@ -64,11 +74,13 @@ negative_templates = [
 pos_adj    = ["amazing", "fantastic", "wonderful", "excellent", "brilliant",
               "outstanding", "superb", "delightful", "perfect", "great",
               "impressive", "stellar", "exceptional", "marvelous", "fabulous",
-              "splendid", "remarkable", "glorious", "elegant", "lovely"]
+              "splendid", "remarkable", "glorious", "elegant", "lovely",
+              "good", "nice", "fine", "solid", "awesome", "cool", "decent"]
 neg_adj    = ["terrible", "awful", "horrible", "dreadful", "poor",
               "disappointing", "pathetic", "mediocre", "broken", "useless",
               "flimsy", "defective", "subpar", "lousy", "annoying",
-              "frustrating", "atrocious", "abysmal", "cheap", "ugly"]
+              "frustrating", "atrocious", "abysmal", "cheap", "ugly",
+              "bad", "worst", "garbage", "trash", "junk", "crappy", "rubbish"]
 
 pos_adj2   = ["fast", "reliable", "smooth", "premium", "friendly",
               "polished", "clean", "intuitive", "responsive", "sturdy"]
@@ -83,7 +95,8 @@ neg_emotion = ["disappointed", "frustrated", "annoyed", "upset", "angry",
 pos_verb   = ["love", "enjoy", "adore", "appreciate", "cherish",
               "recommend", "admire", "value", "treasure", "praise"]
 neg_verb   = ["hate", "regret", "despise", "dislike", "loathe",
-              "returned", "avoid", "reject", "criticized", "resent"]
+              "returned", "avoid", "reject", "criticized", "resent",
+              "detest", "abhor", "deplore", "condemn", "dread"]
 
 pos_verb_past = ["owned", "used", "tried", "purchased", "experienced"]
 neg_verb_past = ["bought", "used", "tried", "wasted money on", "suffered through"]
@@ -127,6 +140,11 @@ neg_reasons = [
     "No attention to detail at all",
     "The colors faded after one week",
     "Very uncomfortable to use for any length of time",
+    "Complete junk dont buy this",
+    "This is bad and not worth the money",
+    "Sucks and is a total scam",
+    "Not good and very overpriced",
+    "Garbage product that falls apart instantly",
 ]
 
 pos_extras = [
@@ -182,9 +200,9 @@ def fill_negative():
 # ── Generate ─────────────────────────────────────────────────────────
 
 rows = []
-for _ in range(1100):
+for _ in range(1300):
     rows.append((fill_positive(), 1))
-for _ in range(1100):
+for _ in range(1300):
     rows.append((fill_negative(), 0))
 
 random.shuffle(rows)

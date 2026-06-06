@@ -40,10 +40,13 @@ class Perceptron:
     def activation(self, z):
         """
         Step function (activation function).
-        If z >= 0, return 1 (Positive)
-        If z < 0,  return 0 (Negative)
+        If z > 0, return 1 (Positive)
+        If z <= 0, return 0 (Negative)
+
+        Note: When z is exactly 0 (e.g. all unknown words),
+        we default to Negative to avoid false positives.
         """
-        if z >= 0:
+        if z > 0:
             return 1
         else:
             return 0
